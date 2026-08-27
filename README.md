@@ -133,11 +133,8 @@ The user can:
 RegistrationApp/
 │
 ├── app/
-│   │
 │   ├── src/
-│   │   │
 │   │   └── main/
-│   │       │
 │   │       ├── java/
 │   │       │   └── com/example/registrationapp/
 │   │       │       └── MainActivity.java
@@ -147,8 +144,10 @@ RegistrationApp/
 │   │       │   │   ├── bg_header.xml
 │   │       │   │   ├── bg_register_btn.xml
 │   │       │   │   └── circle_profile_bg.xml
+│   │       │   │
 │   │       │   ├── layout/
 │   │       │   │   └── activity_main.xml
+│   │       │   │
 │   │       │   └── values/
 │   │       │       ├── colors.xml
 │   │       │       ├── strings.xml
@@ -165,7 +164,6 @@ RegistrationApp/
 ├── gradlew
 ├── gradlew.bat
 └── README.md
-
 ---
 
 ## Important Files and Their Purpose
