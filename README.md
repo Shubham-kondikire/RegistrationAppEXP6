@@ -133,8 +133,11 @@ The user can:
 RegistrationApp/
 │
 ├── app/
+│   │
 │   ├── src/
+│   │   │
 │   │   └── main/
+│   │       │
 │   │       ├── java/
 │   │       │   └── com/example/registrationapp/
 │   │       │       └── MainActivity.java
@@ -164,7 +167,6 @@ RegistrationApp/
 ├── gradlew
 ├── gradlew.bat
 └── README.md
----
 
 ## Important Files and Their Purpose
 
