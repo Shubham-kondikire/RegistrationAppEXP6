@@ -130,8 +130,7 @@ The user can:
 
 ## Project Folder and File Structure
 
-```text
-BasicViewsDemo/
+RegistrationApp/
 │
 ├── app/
 │   │
@@ -140,30 +139,32 @@ BasicViewsDemo/
 │   │   └── main/
 │   │       │
 │   │       ├── java/
-│   │       │   └── com/example/basicviewsdemomad6/
-│   │       │       └── MainActivity.kt
+│   │       │   └── com/example/registrationapp/
+│   │       │       └── MainActivity.java
 │   │       │
 │   │       ├── res/
-│   │       │   └── layout/
-│   │       │       └── activity_main.xml
+│   │       │   ├── drawable/
+│   │       │   │   ├── bg_header.xml
+│   │       │   │   ├── bg_register_btn.xml
+│   │       │   │   └── circle_profile_bg.xml
+│   │       │   ├── layout/
+│   │       │   │   └── activity_main.xml
+│   │       │   └── values/
+│   │       │       ├── colors.xml
+│   │       │       ├── strings.xml
+│   │       │       └── themes.xml
 │   │       │
 │   │       └── AndroidManifest.xml
 │   │
-│   └── build.gradle.kts
+│   ├── build.gradle
+│   └── proguard-rules.pro
 │
-├── gradle/
-│   └── wrapper/
-│
-├── .idea/
-├── .gitignore
-├── build.gradle.kts
+├── build.gradle
 ├── gradle.properties
+├── settings.gradle
 ├── gradlew
 ├── gradlew.bat
-├── settings.gradle.kts
-├── screenshot.png
 └── README.md
-```
 
 ---
 
