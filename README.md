@@ -517,19 +517,10 @@ The application accepts user input, validates the information, handles different
 
 # Output Screenshots
 
-Add the screenshots of the application below this section.
+<img width="720" height="1600" alt="MAD EXP 6 (1)" src="https://github.com/user-attachments/assets/e5f67820-d271-4755-8e26-828269f354cb" />
+<img width="720" height="1600" alt="MAD EXP 6 (2)" src="https://github.com/user-attachments/assets/e8c94c81-609e-48a5-bde7-d15840de758a" />
 
-### Registration Form
 
-`mad exp 6 (1)`
-
-### Registration Result
-
-`mad exp 6 (2)`
-
-> Place the corresponding image files in the GitHub repository and update the image paths if required.
-
----
 
 # Steps to Run the Project
 
