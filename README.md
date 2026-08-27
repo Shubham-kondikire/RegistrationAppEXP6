@@ -1,136 +1,202 @@
-# Experiment 6: Basic Views in Android
+# Experiment 6: Working with Basic UI Widgets in Android
 
-## Student Details
+## User Registration Form
 
-**Name:** Shubham Shivaji Kondikire  
-**USN:** 25MCAR0102  
+### Student Details
+
+**Name:** Shubham Shivaji Kondikire
+**USN:** 25MCAR0102
 **Experiment No.:** 6
 
 ---
 
 ## Aim
 
-To create an Android application using basic Views such as TextView, EditText, Button, ImageButton, CheckBox, ToggleButton, RadioButton, and RadioGroup.
+To develop an Android application that demonstrates the use of basic UI widgets by designing and implementing a User Registration Form.
 
 ---
 
 ## Objective
 
-The objective of this experiment is to understand and implement different basic Android Views and handle user interactions with these UI components.
+The objective of this experiment is to understand and implement basic Android UI widgets and handle user input and validation using event listeners.
 
-The application demonstrates how to collect user input from multiple Views and display the entered information together in the application.
+The application demonstrates the use of:
+
+* EditText
+* Button
+* ImageButton
+* CheckBox
+* ToggleButton
+* RadioButton
+* RadioGroup
+* TextInputLayout
+* CardView
+* XML Layouts
 
 ---
 
 ## Concept / Technology Used
 
-Android provides different View widgets for designing user interfaces and collecting user input.
+### UI Widgets
 
-### TextView
-
-`TextView` is used to display text information to the user.
+Android provides several basic UI widgets that allow users to enter information and make selections.
 
 ### EditText
 
-`EditText` allows the user to enter text or other information.
+`EditText` is used to accept text input from the user, such as:
+
+* Full Name
+* Email
+* Password
 
 ### Button
 
-`Button` is used to perform an action when the user clicks it.
+`Button` is used to perform an action when the user clicks it. In this application, the Register button validates the entered information and displays a registration summary.
 
 ### ImageButton
 
-`ImageButton` is a button that displays an image and performs an action when clicked.
+`ImageButton` is a button that displays an image. It is used as a profile picture button in the registration form.
 
 ### CheckBox
 
-`CheckBox` allows the user to select or deselect an option. Multiple CheckBoxes can be selected at the same time.
+`CheckBox` allows the user to select or deselect an option independently. In this application, it is used for accepting the Terms and Conditions.
 
 ### ToggleButton
 
-`ToggleButton` provides two states, such as ON and OFF.
+`ToggleButton` provides two states, ON and OFF. It is used to enable or disable notification preferences.
 
-### RadioButton
+### RadioButton and RadioGroup
 
-`RadioButton` provides selectable options where the user can choose an option.
+`RadioButton` allows the user to select one option. Multiple RadioButtons are placed inside a `RadioGroup` to ensure that only one option can be selected.
 
-### RadioGroup
+In this application, RadioButtons are used for selecting Gender.
 
-`RadioGroup` groups multiple RadioButtons together and allows the user to select one option from the group.
+### TextInputLayout
+
+`TextInputLayout` is a Material Components wrapper around an input field. It provides features such as floating hints, input icons, error messages, and password visibility controls.
+
+### CardView
+
+`CardView` is used to provide a card-style container for the registration form and improve the overall user interface design.
 
 ---
 
-## Scenario
+## Input Handling and Validation
 
-The application demonstrates a basic user input form.
+Input values are retrieved using Android methods such as:
 
-The user can:
+* `getText()`
+* `isChecked()`
+* `getCheckedRadioButtonId()`
 
-1. Enter their name using an `EditText`.
-2. Select the agreement option using a `CheckBox`.
-3. Change the state of a `ToggleButton`.
-4. Select gender using a `RadioGroup` containing `RadioButton` options.
-5. Click the Submit button.
-6. View all the entered information together in a result `TextView`.
-7. Click the `ImageButton` to display a Toast message.
+The input values are validated inside button click listeners before displaying the registration summary.
 
-### Application Flow
+### Example
 
-```text
-                    Android Application
-                           |
-                           ↓
-                    MainActivity
-                           |
-            +--------------+--------------+
-            |              |              |
-            ↓              ↓              ↓
-        Enter Name     Select Options   Select Gender
-        EditText        CheckBox        RadioGroup
-                           |
-                           ↓
-                     Toggle Button
-                           |
-                           ↓
-                     Submit Button
-                           |
-                           ↓
-                    Result TextView
+```java
+btnRegister.setOnClickListener(v -> registerUser());
+
+private void registerUser() {
+    String name = etFullName.getText().toString().trim();
+
+    if (name.isEmpty()) {
+        etFullName.setError("Name is required");
+        etFullName.requestFocus();
+        return;
+    }
+
+    // Additional validation
+
+    Toast.makeText(this, summary, Toast.LENGTH_LONG).show();
+}
 ```
 
 ---
 
-## Software Requirements
+# Scenario
 
-- Android Studio
-- Kotlin
-- Android SDK
-- Gradle
-- Android Emulator or Physical Android Device
+The application displays a User Registration Form inside a card layout.
 
----
+The user can:
 
-## Technologies Used
+1. Enter their Full Name.
+2. Enter their Email.
+3. Enter their Password.
+4. Select their Gender.
+5. Enable or disable Notifications.
+6. Accept the Terms and Conditions.
+7. Click the Register button.
 
-- Kotlin
-- Android Views
-- TextView
-- EditText
-- Button
-- ImageButton
-- CheckBox
-- ToggleButton
-- RadioButton
-- RadioGroup
-- Toast
-- XML Layout
-- Android SDK
+When the Register button is clicked, the application validates all required fields in sequence.
+
+If all the entered information is valid, a Toast message displays a summary of the registration details.
 
 ---
 
-## Project Folder and File Structure
+# Application Flow
 
-## Project Folder and File Structure
+```text
+MainActivity
+     |
+     ↓
+Enter Name, Email, Password
+     |
+     ↓
+Select Gender using RadioGroup
+     |
+     ↓
+Toggle Notifications
+     |
+     ↓
+Accept Terms and Conditions
+     |
+     ↓
+Click "Register"
+     |
+     ↓
+Validate Fields
+(Name → Email → Password → Gender → Terms)
+     |
+     ↓
+Show Registration Summary
+     |
+     ↓
+Toast Message
+```
+
+---
+
+# Software Requirements
+
+* Android Studio
+* Java
+* Android SDK
+* Gradle
+* Android Emulator or Physical Android Device
+
+---
+
+# Technologies Used
+
+| Technology / Component | Purpose                         |
+| ---------------------- | ------------------------------- |
+| Java                   | Application logic               |
+| XML                    | User interface design           |
+| EditText               | Text input                      |
+| TextInputLayout        | Enhanced input fields           |
+| Button                 | Registration action             |
+| ImageButton            | Profile picture action          |
+| CheckBox               | Terms and Conditions            |
+| ToggleButton           | Notification setting            |
+| RadioButton            | Gender selection                |
+| RadioGroup             | Grouping gender options         |
+| CardView               | Card-based UI                   |
+| Android Manifest       | Application configuration       |
+| Gradle                 | Build and dependency management |
+
+---
+
+# Project Folder and File Structure
 
 ```text
 RegistrationApp/
@@ -172,163 +238,191 @@ RegistrationApp/
 └── README.md
 ```
 
-## Important Files and Their Purpose
+---
 
-### MainActivity.kt
+# Important Files and Their Purpose
 
-`MainActivity.kt` contains the main application logic and handles interactions with all the basic Views.
+## MainActivity.java
 
-It processes:
+`MainActivity.java` contains the main application logic.
 
-- Name input
-- CheckBox selection
-- ToggleButton state
-- RadioButton selection
-- Submit button click
-- ImageButton click
-- Result display
+It is responsible for:
+
+* Linking UI elements using `findViewById()`.
+* Handling ImageButton click events.
+* Handling Register button click events.
+* Reading user input.
+* Validating user input.
+* Checking Gender selection.
+* Checking Terms and Conditions.
+* Checking Notification status.
+* Creating and displaying the registration summary.
 
 ---
 
-### activity_main.xml
+## activity_main.xml
 
-`activity_main.xml` contains the user interface and includes the basic Android Views used in this experiment.
+`activity_main.xml` defines the complete registration form interface.
 
-The layout contains:
+It contains:
 
-- TextView
-- EditText
-- Button
-- ImageButton
-- CheckBox
-- ToggleButton
-- RadioButton
-- RadioGroup
-- Result TextView
-
----
-
-### AndroidManifest.xml
-
-`AndroidManifest.xml` contains the basic application configuration and declares the application's Activity.
+* Header section
+* Profile picture ImageButton
+* Full Name input field
+* Email input field
+* Password input field
+* Gender RadioGroup
+* Gender RadioButtons
+* Notifications ToggleButton
+* Terms and Conditions CheckBox
+* Register Button
+* CardView-based layout
 
 ---
 
-### build.gradle.kts
+## AndroidManifest.xml
 
-This file contains the Android application build configuration and required dependencies.
+`AndroidManifest.xml` contains the application configuration and declares `MainActivity` as the launcher activity.
 
 ---
 
-## Working / Implementation
+## build.gradle
 
-### 1. Enter Name
+The Gradle configuration contains the Android application build settings and required dependencies.
 
-The user enters their name using the `EditText`.
+The project uses dependencies for components such as:
+
+* AndroidX/AppCompat
+* Material Components
+* CardView
+
+---
+
+# Working / Implementation
+
+## 1. Link Views
+
+All required Views are linked to the XML layout using `findViewById()` inside the `onCreate()` method.
+
+Examples include:
+
+```java
+EditText etFullName;
+EditText etEmail;
+EditText etPassword;
+
+RadioGroup radioGroupGender;
+
+ToggleButton toggleNotifications;
+
+CheckBox checkTerms;
+
+Button btnRegister;
+
+ImageButton btnProfile;
+```
+
+---
+
+## 2. Handle ImageButton Click
+
+When the user taps the profile ImageButton, a Toast message is displayed indicating that the profile picture selection functionality has been triggered.
 
 Example:
 
-```text
-Shubham Shivaji Kondikire
+```java
+btnProfile.setOnClickListener(v -> {
+    Toast.makeText(this,
+            "Profile picture selection",
+            Toast.LENGTH_SHORT).show();
+});
 ```
 
 ---
 
-### 2. Agreement CheckBox
+## 3. Validate and Register
 
-The user can select the agreement CheckBox.
+When the user clicks the Register button, the application validates the form fields in the following order:
 
-The application records whether the CheckBox is selected or not.
+1. Full Name
+2. Email
+3. Password
+4. Gender
+5. Terms and Conditions
 
----
+If a required field is empty, an error message is displayed and focus is moved to that field.
 
-### 3. ToggleButton
+After successful validation, the application creates a summary containing:
 
-The ToggleButton allows the user to switch between two states:
+* Name
+* Email
+* Gender
+* Notification preference
+* Registration status
 
-```text
-ON
-OFF
-```
-
-The selected state is included in the result.
-
----
-
-### 4. Gender Selection
-
-The application uses a `RadioGroup` containing RadioButtons.
-
-The user can select one gender option.
-
-Example:
-
-```text
-○ Male
-○ Female
-```
-
-Only one RadioButton can be selected from the RadioGroup.
+The summary is displayed using a Toast message.
 
 ---
 
-### 5. Submit Button
-
-When the user clicks the Submit button, the application collects all the entered values and displays them together in the result `TextView`.
-
-The result contains:
+# Registration Validation Flow
 
 ```text
-Name
-Gender
-Agreement Status
-Toggle Status
-```
-
----
-
-### 6. ImageButton
-
-The application contains an ImageButton.
-
-When the user clicks the ImageButton, a Toast message is displayed:
-
-```text
-Image Button Clicked!
+Click "Register"
+       |
+       ↓
+Validate Name
+       |
+       ↓
+Validate Email
+       |
+       ↓
+Validate Password
+       |
+       ↓
+Check Gender Selection
+       |
+       ↓
+Check Terms Acceptance
+       |
+       ↓
+Read Notification Status
+       |
+       ↓
+Create Registration Summary
+       |
+       ↓
+Display Toast Message
 ```
 
 ---
 
 # Test Cases
 
-## Test Case 1: Fill Form and Submit
+## Test Case 1: Empty Field Validation
 
 ### Test Objective
 
-To verify that the application correctly collects input from different Views and displays the result.
+To verify that the application displays an error when a required field is left empty.
 
 ### Test Steps
 
-1. Launch the application.
-2. Enter the name in the EditText.
-3. Select the agreement CheckBox.
-4. Turn the ToggleButton ON.
-5. Select Male using the RadioButton.
-6. Click the Submit button.
-7. Observe the result section.
+1. Leave the Full Name field empty.
+2. Enter the remaining information if required.
+3. Click the **Register** button.
 
 ### Expected Result
 
-The Result TextView should correctly display:
+An inline error message:
 
-- Entered name
-- Selected gender
-- Agreement status
-- Toggle status
+```text
+Name is required
+```
+
+should appear on the Full Name field, and focus should move to the field.
 
 ### Actual Result
 
-The entered values were displayed correctly in the result section.
+The error message appeared as expected and focus moved to the Full Name field.
 
 ### Status
 
@@ -336,30 +430,40 @@ The entered values were displayed correctly in the result section.
 
 ---
 
-## Test Case 2: ImageButton Interaction
+# Test Case 2: Gender and Terms Validation
 
 ### Test Objective
 
-To verify that the ImageButton responds correctly when clicked.
+To verify that the application prompts the user when Gender is not selected or Terms and Conditions are not accepted.
 
 ### Test Steps
 
-1. Launch the application.
-2. Locate the ImageButton.
-3. Click the ImageButton.
-4. Observe the screen.
+1. Fill in Name, Email, and Password.
+2. Leave Gender unselected.
+3. Click the **Register** button.
+4. Select a Gender.
+5. Leave the Terms and Conditions checkbox unchecked.
+6. Click the **Register** button again.
 
 ### Expected Result
 
-A Toast message should appear:
+The application should first display:
 
 ```text
-Image Button Clicked!
+Please select your gender
 ```
+
+After selecting Gender, it should display:
+
+```text
+You must accept the Terms and Conditions
+```
+
+if the Terms checkbox remains unchecked.
 
 ### Actual Result
 
-The Toast message was displayed successfully.
+Both Toast messages appeared as expected at the appropriate validation steps.
 
 ### Status
 
@@ -367,37 +471,35 @@ The Toast message was displayed successfully.
 
 ---
 
-## Test Case 3: Verify Student Name and USN
+# Test Case 3: Successful Registration
 
 ### Test Objective
 
-To verify the student's name and USN in the application output.
-
-### Test Data
-
-**Name:** Shubham Shivaji Kondikire  
-**USN:** 25MCAR0102
+To verify that a registration summary is displayed when all fields contain valid information.
 
 ### Test Steps
 
-1. Launch the application.
-2. Enter the student's name.
-3. Complete the required form inputs.
-4. Click Submit.
-5. Verify the displayed student information.
+1. Enter Full Name.
+2. Enter Email.
+3. Enter Password.
+4. Select a Gender.
+5. Toggle Notifications ON.
+6. Check **I agree to the Terms and Conditions**.
+7. Click the **Register** button.
 
 ### Expected Result
 
-The application should correctly display:
+A Toast message should display a summary containing:
 
-```text
-Name: Shubham Shivaji Kondikire
-USN: 25MCAR0102
-```
+* Name
+* Email
+* Gender
+* Notifications status
+* Registration successful message
 
 ### Actual Result
 
-The student's name and USN were verified successfully.
+The summary Toast appeared successfully with all entered details.
 
 ### Status
 
@@ -407,46 +509,109 @@ The student's name and USN were verified successfully.
 
 # Output
 
-The application successfully demonstrates the use of basic Android Views including TextView, EditText, Button, ImageButton, CheckBox, ToggleButton, RadioButton, and RadioGroup.
+The application successfully demonstrates the use of basic Android UI widgets to create a functional and validated User Registration Form.
 
-The application collects user input and displays the result after clicking the Submit button.
+The application accepts user input, validates the information, handles different widget selections, and displays a registration summary.
 
-### Output Screenshot
+---
 
-<img width="720" height="1600" alt="MADEXP6 png" src="https://github.com/user-attachments/assets/78f066fb-c233-4dd0-b98b-8252a3b604cf" />
+# Output Screenshots
 
+Add the screenshots of the application below this section.
+
+### Registration Form
+
+`mad exp 6 (1)`
+
+### Registration Result
+
+`mad exp 6 (2)`
+
+> Place the corresponding image files in the GitHub repository and update the image paths if required.
 
 ---
 
 # Steps to Run the Project
 
-1. Open the project in Android Studio.
-2. Allow Gradle synchronization to complete.
-3. Connect an Android device or start an Android Emulator.
-4. Select the application from the Run Configuration.
-5. Click the **Run ▶** button.
-6. Launch the application.
-7. Enter the required information.
-8. Select the required options.
-9. Click the Submit button.
-10. Verify the displayed result.
+## Step 1: Open the Project
+
+Open **Android Studio**.
+
+Select:
+
+```text
+File → Open
+```
+
+and choose the `RegistrationApp` project folder.
 
 ---
 
-# Requirements
+## Step 2: Gradle Synchronization
 
-## Hardware Requirements
+Allow Android Studio to complete the Gradle synchronization.
 
-- Laptop/Desktop
-- Android Device or Android Emulator
-- USB Cable if using a physical Android device
+Make sure there are no Gradle or dependency errors.
 
-## Software Requirements
+---
 
-- Android Studio
-- Kotlin
-- Android SDK
-- Gradle
+## Step 3: Connect Device
+
+You can use either:
+
+* Android Emulator
+* Physical Android Device
+
+If using a physical Android device, enable **Developer Options** and **USB Debugging**.
+
+---
+
+## Step 4: Run the Application
+
+Select the application from the Run Configuration.
+
+Click the:
+
+```text
+Run ▶
+```
+
+button in Android Studio.
+
+---
+
+## Step 5: Test the Registration Form
+
+Enter the required details:
+
+* Full Name
+* Email
+* Password
+* Gender
+* Notification preference
+* Terms and Conditions
+
+Finally, click **Register**.
+
+The application validates the information and displays the registration summary.
+
+---
+
+# Hardware Requirements
+
+* Laptop/Desktop
+* Android Device or Android Emulator
+* USB Cable, if using a physical Android device
+
+---
+
+# Software Requirements
+
+* Android Studio
+* Java Development Kit (JDK)
+* Android SDK
+* Gradle
+* Android Emulator or Physical Android Device
 
 ---
 
@@ -454,75 +619,69 @@ The application collects user input and displays the result after clicking the S
 
 After completing this experiment, the following concepts were understood:
 
-- TextView
-- EditText
-- Button
-- ImageButton
-- CheckBox
-- ToggleButton
-- RadioButton
-- RadioGroup
-- Handling user input
-- Handling button click events
-- Displaying Toast messages
-- Displaying dynamic results
-- Designing Android UI using XML
+* Basic Android UI Widgets
+* EditText for user input
+* Button and ImageButton click handling
+* CheckBox for independent selections
+* ToggleButton for ON/OFF settings
+* RadioButton and RadioGroup for mutually exclusive choices
+* TextInputLayout with Material Components
+* Input validation using event listeners
+* CardView-based UI design
+* XML-based Android layouts
+* Android Manifest configuration
+* Toast messages for displaying information
+* Reading user input using Android View methods
 
 ---
 
 # Result
 
-The Android application was successfully developed and executed using different basic Android Views.
+The Android application was successfully developed and executed to demonstrate the use of basic UI widgets in a User Registration Form.
 
-The application successfully accepts user input, processes the selected options, displays the result, and handles ImageButton interaction.
+The application successfully accepts user input, performs validation, handles widget interactions, and displays the registration details using a Toast message.
 
 ---
 
 # Conclusion
 
-The experiment successfully demonstrated the use of essential basic Views in Android.
+The experiment successfully demonstrated how to design and implement a User Registration Form using basic Android UI widgets such as **EditText, Button, ImageButton, CheckBox, ToggleButton, RadioButton, and RadioGroup**.
 
-The application uses TextView, EditText, Button, ImageButton, CheckBox, ToggleButton, RadioButton, and RadioGroup to create an interactive user interface.
+The application also demonstrated input validation, event handling, CardView-based UI design, Material Components, and displaying a registration summary using Toast messages.
 
-The experiment also demonstrated how user input from multiple UI components can be collected, processed, and displayed together in the result section.
-
-Thus, the objective of creating an Android application using basic Views was successfully achieved.
+Thus, the objective of implementing an Android application using basic UI widgets was successfully achieved.
 
 ---
 
 # Student Information
 
-**Name:** Shubham Shivaji Kondikire  
+**Name:** Shubham Shivaji Kondikire
 **USN:** 25MCAR0102
-
-**Experiment:** Experiment 6 – Basic Views in Android
+**Experiment:** 6
+**Application:** RegistrationApp
 
 ---
 
 # GitHub Repository
 
-**Repository Name:** BasicViewsDemo
+**Repository Name:** RegistrationApp
 
-**GitHub Link:**
-
-https://github.com/Shubham-kondikire/MADEXP6-main.git
+**GitHub:** Shubham-kondikire/RegistrationApp
 
 ---
 
-# Reference
+# References
 
-- Android Developers – Views
-- Android Developers – TextView
-- Android Developers – EditText
-- Android Developers – Buttons
-- Android Developers – CheckBox
-- Android Developers – RadioButton
-- Android Developers – ToggleButton
+1. Android Developers – Common UI Widgets
+2. Android Developers – Input Controls
+3. Android Developers – Material Components and TextInputLayout
+4. Android Developers – User Interface and Layouts
 
 ---
 
-## Author
+# Author
 
 **Shubham Shivaji Kondikire**
-
 **USN:** 25MCAR0102
+
+---
