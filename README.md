@@ -130,6 +130,9 @@ The user can:
 
 ## Project Folder and File Structure
 
+## Project Folder and File Structure
+
+```text
 RegistrationApp/
 │
 ├── app/
@@ -167,6 +170,7 @@ RegistrationApp/
 ├── gradlew
 ├── gradlew.bat
 └── README.md
+```
 
 ## Important Files and Their Purpose
 
