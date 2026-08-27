@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "com.example.registrationapp-merged_res-31:/drawable_bg_header.xml.flat",
+        "source": "com.example.registrationapp-main-33:/drawable/bg_header.xml"
+    },
+    {
+        "merged": "com.example.registrationapp-merged_res-31:/drawable_bg_register_btn.xml.flat",
+        "source": "com.example.registrationapp-main-33:/drawable/bg_register_btn.xml"
+    },
+    {
+        "merged": "com.example.registrationapp-merged_res-31:/drawable_circle_profile_bg.xml.flat",
+        "source": "com.example.registrationapp-main-33:/drawable/circle_profile_bg.xml"
+    },
+    {
+        "merged": "com.example.registrationapp-merged_res-31:/layout_activity_main.xml.flat",
+        "source": "com.example.registrationapp-main-33:/layout/activity_main.xml"
+    }
+]

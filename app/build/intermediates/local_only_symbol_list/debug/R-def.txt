@@ -1,0 +1,26 @@
+R_DEF: Internal format may change without notice
+local
+color bg_light
+color colorAccent
+color colorPrimary
+color colorPrimaryDark
+color text_dark
+color text_gray
+color white
+drawable bg_header
+drawable bg_register_btn
+drawable circle_profile_bg
+id btnRegister
+id cbTerms
+id etEmail
+id etFullName
+id etPassword
+id imgBtnProfile
+id rbFemale
+id rbMale
+id rbOther
+id rgGender
+id toggleNotify
+layout activity_main
+string app_name
+style Theme.RegistrationApp
